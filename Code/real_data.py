@@ -7,7 +7,6 @@ subject = 'sample'
 evoked_fname = data_path / 'MEG' / subject / 'sample_audvis-ave.fif'
 condition = ["Right visual", "Left visual","Left Auditory","Right Auditory"]
 info_ = mne.io.read_info(evoked_fname)
-real_data = []
 n_channels = 305
 
 for i in range(len(condition)):
@@ -38,6 +37,4 @@ for i in range(len(condition)):
                 data_new[:,j] = np.mean(data[:,j*5:j*5+5],axis = 1)
                 
     np.save('C:/Users/User/Desktop/Project/data/'+condition[i], np.array(data_new))
-    real_data.append(data_new)
-            
         
